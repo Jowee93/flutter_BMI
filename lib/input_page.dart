@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card_custom_widget.dart';
@@ -20,6 +21,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   GenderType selectedGender;
+  int height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -71,9 +73,51 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                    child: ReusableCard(
-                  colour: reusableCardColor,
-                )),
+                  child: ReusableCard(
+                    colour: reusableCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              'HEIGHT',
+                              style: kLabelTextStyle,
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: <Widget>[
+                            Text(
+                              height.toString(),
+                              style: kNumberStyle,
+                            ),
+                            Text(
+                              'cm',
+                              style: kLabelTextStyle,
+                            ),
+                          ],
+                        ),
+                        Slider(
+                          value: height.toDouble(),
+                          min: 120.0,
+                          max: 220.0,
+                          activeColor: Color(0xFFEB1555),
+                          inactiveColor: Color(0xFF8D8E98),
+                          onChanged: (double newValue) {
+                            setState(() {
+                              height = newValue.round();
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -81,13 +125,15 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                    child: ReusableCard(
-                  colour: reusableCardColor,
-                )),
+                  child: ReusableCard(
+                    colour: reusableCardColor,
+                  ),
+                ),
                 Expanded(
-                    child: ReusableCard(
-                  colour: reusableCardColor,
-                )),
+                  child: ReusableCard(
+                    colour: reusableCardColor,
+                  ),
+                ),
               ],
             ),
           ),

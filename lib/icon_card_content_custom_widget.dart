@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-
-const iconSize = 80.0;
-const emptySizedBox = 15.0;
-const textFontSize = 18.0;
-const textFontColor = Color(0xFF8D8E98);
+import 'constants.dart';
 
 class IconCardContent extends StatelessWidget {
   final IconData icon;
@@ -18,17 +14,14 @@ class IconCardContent extends StatelessWidget {
       children: <Widget>[
         Icon(
           icon,
-          size: iconSize,
+          size: kIconSize,
         ),
         SizedBox(
-          height: emptySizedBox,
+          height: kEmptySizedBox,
         ),
         Text(
           text,
-          style: TextStyle(
-            fontSize: textFontSize,
-            color: textFontColor,
-          ),
+          style: kLabelTextStyle,
         ),
       ],
     );

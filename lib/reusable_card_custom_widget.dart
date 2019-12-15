@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-const cardMargin = EdgeInsets.all(15.0);
-const cardBorderRadius = 10.0;
+import 'constants.dart';
 
 class ReusableCard extends StatelessWidget {
   final Color colour;
@@ -16,10 +14,10 @@ class ReusableCard extends StatelessWidget {
       onTap: onPress,
       child: Container(
         child: cardChild,
-        margin: cardMargin,
+        margin: kCardMargin,
         decoration: BoxDecoration(
           color: colour,
-          borderRadius: BorderRadius.circular(cardBorderRadius),
+          borderRadius: BorderRadius.circular(kCardBorderRadius),
         ),
       ),
     );
