@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'reusable_card_custom_widget.dart';
 import 'constants.dart';
 import 'bottom_container.dart';
+import 'input_page.dart';
 
 class ResultPage extends StatefulWidget {
   ResultPage({this.bmiScore, this.bmiResult, this.bmiText});
@@ -53,6 +54,10 @@ class _ResultPageState extends State<ResultPage> {
           ),
           BottomContainer(
             text: 'RE-CALCULATE',
+            method: () {
+              Navigator.pop(context, InputPage());
+              // Navigator.pop(context, '/');
+            },
           ),
         ],
       ),

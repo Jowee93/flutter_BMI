@@ -37,3 +37,4 @@ const bottomContainerHeight = 80.0;
 const bottomContainerColor = Color(0xFFEB1555);
 const reusableCardColor = Color(0xFF1D1E33);
 const inactiveReusableCardColor = Color(0xFF111328);
+
