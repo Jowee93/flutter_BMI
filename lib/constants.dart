@@ -12,5 +12,28 @@ const kNumberStyle = TextStyle(
   fontWeight: FontWeight.w900,
 );
 
+const kResultTextStyle = TextStyle(
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+  color: Color(0xFF24D876),
+);
+
+const kLargeResultStyle = TextStyle(
+  fontSize: 100.0,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);
+
+const kLargeResultTextStyle = TextStyle(
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);
+
 const kCardMargin = EdgeInsets.all(15.0);
 const kCardBorderRadius = 10.0;
+
+const bottomContainerHeight = 80.0;
+const bottomContainerColor = Color(0xFFEB1555);
+const reusableCardColor = Color(0xFF1D1E33);
+const inactiveReusableCardColor = Color(0xFF111328);

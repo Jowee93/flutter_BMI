@@ -4,11 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card_custom_widget.dart';
 import 'icon_card_content_custom_widget.dart';
 import 'raised_button_widget.dart';
-
-const bottomContainerHeight = 80.0;
-const bottomContainerColor = Color(0xFFEB1555);
-const reusableCardColor = Color(0xFF1D1E33);
-const inactiveReusableCardColor = Color(0xFF111328);
+import 'constants.dart';
+import 'bottom_container.dart';
 
 enum GenderType {
   male,
@@ -241,11 +238,10 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: bottomContainerColor,
-            margin: EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: bottomContainerHeight,
+          BottomContainer(
+            text: 'CALCULATE',
+            height: height,
+            weight: weight,
           ),
         ],
       ),
