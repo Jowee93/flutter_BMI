@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card_custom_widget.dart';
 import 'icon_card_content_custom_widget.dart';
+import 'raised_button_widget.dart';
 
 const bottomContainerHeight = 80.0;
 const bottomContainerColor = Color(0xFFEB1555);
@@ -22,6 +23,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   GenderType selectedGender;
   int height = 180;
+  int weight = 80;
+  int age = 25;
 
   @override
   Widget build(BuildContext context) {
@@ -102,17 +105,26 @@ class _InputPageState extends State<InputPage> {
                             ),
                           ],
                         ),
-                        Slider(
-                          value: height.toDouble(),
-                          min: 120.0,
-                          max: 220.0,
-                          activeColor: Color(0xFFEB1555),
-                          inactiveColor: Color(0xFF8D8E98),
-                          onChanged: (double newValue) {
-                            setState(() {
-                              height = newValue.round();
-                            });
-                          },
+                        SliderTheme(
+                          data: SliderTheme.of(context).copyWith(
+                            thumbColor: Color(0xFFEB1555),
+                            thumbShape:
+                                RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                            overlayShape:
+                                RoundSliderOverlayShape(overlayRadius: 30.0),
+                          ),
+                          child: Slider(
+                            value: height.toDouble(),
+                            min: 120.0,
+                            max: 220.0,
+                            activeColor: Color(0xFFEB1555),
+                            inactiveColor: Color(0xFF8D8E98),
+                            onChanged: (double newValue) {
+                              setState(() {
+                                height = newValue.round();
+                              });
+                            },
+                          ),
                         ),
                       ],
                     ),
@@ -126,11 +138,103 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              'WEIGHT',
+                              style: kLabelTextStyle,
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              weight.toString(),
+                              style: kNumberStyle,
+                            ),
+                          ],
+                        ),
+                        Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              RoundButton(
+                                icon: Icons.remove,
+                                addMinus: () {
+                                  setState(() {
+                                    weight--;
+                                  });
+                                },
+                              ),
+                              RoundButton(
+                                icon: Icons.add,
+                                addMinus: () {
+                                  setState(() {
+                                    weight++;
+                                  });
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                     colour: reusableCardColor,
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              'AGE',
+                              style: kLabelTextStyle,
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              age.toString(),
+                              style: kNumberStyle,
+                            ),
+                          ],
+                        ),
+                        Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              RoundButton(
+                                icon: Icons.remove,
+                                addMinus: () {
+                                  setState(() {
+                                    age--;
+                                  });
+                                },
+                              ),
+                              RoundButton(
+                                icon: Icons.add,
+                                addMinus: () {
+                                  setState(() {
+                                    age++;
+                                  });
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                     colour: reusableCardColor,
                   ),
                 ),
@@ -150,7 +254,9 @@ class _InputPageState extends State<InputPage> {
           accentColor: Colors.purple,
         ),
         child: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/result');
+          },
           child: Icon(Icons.add),
         ),
       ),
